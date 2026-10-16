@@ -1,0 +1,231 @@
+/* Saverna Ahmad — Portfolio */
+:root {
+  --bg: #ffffff;
+  --bg-soft: #f5f5f7;
+  --text: #1d1d1f;
+  --text-soft: #6e6e73;
+  --line: #d2d2d7;
+  --accent: #0066cc;
+  --accent-soft: #e8f1fb;
+  --radius: 18px;
+  --max: 980px;
+  --font: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #000000;
+    --bg-soft: #161617;
+    --text: #f5f5f7;
+    --text-soft: #a1a1a6;
+    --line: #424245;
+    --accent: #2997ff;
+    --accent-soft: #0b2440;
+  }
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font);
+  font-size: 1.0625rem;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+img { max-width: 100%; display: block; }
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+a:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+
+.wrap { max-width: var(--max); margin: 0 auto; padding: 0 22px; }
+
+/* Skip link */
+.skip { position: absolute; left: -999px; top: 8px; background: var(--accent); color: #fff; padding: 8px 14px; border-radius: 8px; }
+.skip:focus { left: 8px; }
+
+/* Nav */
+.nav { position: sticky; top: 0; z-index: 10; background: var(--bg); background: color-mix(in srgb, var(--bg) 85%, transparent); backdrop-filter: saturate(180%) blur(20px); -webkit-backdrop-filter: saturate(180%) blur(20px); border-bottom: 1px solid var(--line); }
+.nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 52px; }
+.nav .name { font-weight: 600; color: var(--text); font-size: 1.0625rem; }
+.nav ul { list-style: none; display: flex; gap: 24px; margin: 0; padding: 0; }
+.nav ul a { color: var(--text-soft); font-size: 0.875rem; }
+.nav ul a[aria-current="page"], .nav ul a:hover { color: var(--text); text-decoration: none; }
+
+/* Hero */
+.hero { padding: 96px 0 64px; }
+.eyebrow { color: var(--accent); font-weight: 600; font-size: 0.9375rem; letter-spacing: .02em; margin: 0 0 12px; }
+h1 { font-size: clamp(2.5rem, 6vw, 4rem); line-height: 1.06; letter-spacing: -0.02em; margin: 0 0 20px; font-weight: 700; }
+.lead { font-size: clamp(1.1875rem, 2.2vw, 1.5rem); color: var(--text-soft); max-width: 720px; margin: 0; line-height: 1.45; }
+.hero .links { margin-top: 28px; display: flex; gap: 20px; flex-wrap: wrap; }
+
+.btn { display: inline-block; background: #0071e3; color: #fff; padding: 11px 22px; border-radius: 980px; font-size: 1rem; font-weight: 500; }
+.btn:hover { text-decoration: none; filter: brightness(1.08); }
+.btn.ghost { background: transparent; color: var(--accent); border: 1px solid var(--accent); }
+
+/* Links inside text are underlined, so they never rely on color alone (WCAG 1.4.1) */
+.cs p a, .cs li a, .callout a, footer a, .cs td a { text-decoration: underline; text-underline-offset: 2px; }
+
+/* Section */
+section { padding: 56px 0; }
+h2 { font-size: clamp(1.75rem, 4vw, 2.5rem); line-height: 1.1; letter-spacing: -0.015em; margin: 0 0 16px; }
+h3 { font-size: 1.3125rem; margin: 32px 0 8px; }
+p { margin: 0 0 16px; }
+.soft { color: var(--text-soft); }
+
+/* Project cards */
+.projects { display: grid; gap: 24px; }
+.card { display: grid; grid-template-columns: 1.1fr 1fr; gap: 0; background: var(--bg-soft); border-radius: var(--radius); overflow: hidden; color: var(--text); transition: transform .25s ease; }
+.card:hover { text-decoration: none; transform: translateY(-3px); }
+.card .info { padding: 40px; display: flex; flex-direction: column; justify-content: center; }
+.card .tag { font-size: 0.875rem; font-weight: 600; color: var(--text-soft); text-transform: uppercase; letter-spacing: .06em; margin-bottom: 10px; }
+.card h3 { font-size: 1.75rem; margin: 0 0 10px; line-height: 1.15; }
+.card p { color: var(--text-soft); margin: 0 0 16px; }
+.card .more { color: var(--accent); font-weight: 500; }
+.card .visual { min-height: 300px; }
+
+/* Placeholder visuals — replace with your Figma exports */
+.ph { display: flex; align-items: center; justify-content: center; text-align: center; padding: 24px; color: var(--text-soft); font-size: 0.875rem; background: repeating-linear-gradient(45deg, var(--bg-soft), var(--bg-soft) 12px, var(--bg) 12px, var(--bg) 24px); border: 1px dashed var(--line); border-radius: var(--radius); min-height: 260px; }
+.card .ph { border-radius: 0; border: 0; border-left: 1px dashed var(--line); height: 100%; }
+.ph strong { display: block; color: var(--text); font-size: 0.9375rem; margin-bottom: 4px; }
+
+/* Stats */
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; margin: 32px 0; }
+.stat { background: var(--bg-soft); border-radius: var(--radius); padding: 24px; }
+.stat .num { font-size: 2.5rem; font-weight: 700; letter-spacing: -0.02em; line-height: 1; margin-bottom: 8px; }
+.stat .label { color: var(--text-soft); font-size: 0.9375rem; }
+
+/* Case study meta */
+.meta { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 20px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 24px 0; margin: 40px 0 0; }
+.meta dt { font-size: 0.875rem; color: var(--text-soft); text-transform: uppercase; letter-spacing: .06em; margin-bottom: 4px; }
+.meta dd { margin: 0; font-weight: 500; }
+
+/* Case study body */
+.cs { max-width: 62ch; }
+.cs ul, .cs ol { padding-left: 22px; margin: 0 0 16px; }
+.cs li { margin-bottom: 8px; }
+.cs figure { margin: 32px 0; }
+.cs figcaption { color: var(--text-soft); font-size: 0.875rem; margin-top: 10px; }
+.wide { max-width: var(--max); }
+
+.callout { background: var(--accent-soft); border-radius: var(--radius); padding: 24px 28px; margin: 32px 0; }
+.callout p:last-child { margin: 0; }
+.quote { font-size: 1.5rem; line-height: 1.35; font-weight: 600; letter-spacing: -0.01em; border-left: 4px solid var(--accent); padding-left: 20px; margin: 32px 0; }
+
+table { width: 100%; border-collapse: collapse; margin: 16px 0 24px; font-size: 0.9375rem; }
+th, td { text-align: left; padding: 12px 14px; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { color: var(--text-soft); font-weight: 600; font-size: 0.875rem; text-transform: uppercase; letter-spacing: .05em; }
+.table-scroll { overflow-x: auto; }
+
+.steps { counter-reset: s; list-style: none; padding: 0 !important; }
+.steps li { counter-increment: s; position: relative; padding-left: 48px; margin-bottom: 20px !important; }
+.steps li::before { content: counter(s); position: absolute; left: 0; top: 0; width: 32px; height: 32px; border-radius: 50%; background: var(--accent); color: #fff; font-weight: 600; font-size: 0.9375rem; display: flex; align-items: center; justify-content: center; }
+
+.badge { display: inline-block; font-size: 0.875rem; font-weight: 600; padding: 4px 12px; border-radius: 980px; background: var(--accent-soft); color: var(--accent); margin-bottom: 16px; }
+
+.next { display: flex; justify-content: space-between; gap: 16px; border-top: 1px solid var(--line); padding-top: 32px; margin-top: 48px; flex-wrap: wrap; }
+
+/* Skills */
+.skills { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
+.skills div { background: var(--bg-soft); border-radius: var(--radius); padding: 24px; }
+.skills h3 { margin: 0 0 8px; font-size: 1.0625rem; }
+.skills p { color: var(--text-soft); font-size: 0.9375rem; margin: 0; }
+
+footer { border-top: 1px solid var(--line); padding: 32px 0 48px; color: var(--text-soft); font-size: 0.875rem; margin-top: 40px; }
+footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+
+@media (max-width: 760px) {
+  .card { grid-template-columns: 1fr; }
+  .card .info { padding: 28px; }
+  .card .ph { border-left: 0; border-top: 1px dashed var(--line); min-height: 200px; }
+  .nav ul { gap: 16px; }
+  .hero { padding: 64px 0 40px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .card { transition: none; }
+  .card:hover { transform: none; }
+}
+
+/* ---------- Diagrams (inline SVG) ---------- */
+.diagram { width: 100%; min-width: 600px; height: auto; display: block; font-family: var(--font); }
+.panel, .cs figure:has(> .diagram) { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.diagram .d-strong { font-size: 15px; font-weight: 600; fill: var(--text); }
+.diagram .d-soft { font-size: 13px; fill: var(--text-soft); }
+.diagram .d-axis { stroke: var(--line); stroke-width: 1.5; }
+.diagram .d-line { stroke: var(--accent); stroke-width: 2; }
+.diagram .d-fill { fill: var(--accent); }
+.diagram .d-fill-soft { fill: #8ab8eb; fill: color-mix(in srgb, var(--accent) 45%, transparent); }
+.diagram .d-red { fill: #ff3b30; }
+.diagram .d-box { fill: var(--bg); stroke: var(--line); stroke-width: 1.5; }
+.diagram .d-box-accent { stroke: var(--accent); stroke-width: 2.5; }
+.panel { background: var(--bg-soft); border-radius: var(--radius); padding: 28px; margin: 24px 0; }
+
+/* ---------- Pillars ---------- */
+.pillars { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; margin: 24px 0; }
+.pillar { background: var(--bg-soft); border-radius: var(--radius); padding: 24px; }
+.pillar .k { font-size: 0.875rem; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; color: var(--accent); margin-bottom: 8px; }
+.pillar p { color: var(--text-soft); font-size: 0.9375rem; margin: 0; }
+.section-label { display: inline-block; font-size: 0.875rem; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: var(--accent); margin-bottom: 6px; }
+.part { border-top: 1px solid var(--line); padding-top: 48px; margin-top: 48px; }
+
+/* ---------- Device mockups (HTML/CSS) ---------- */
+.devices { display: flex; flex-wrap: wrap; gap: 28px; justify-content: center; align-items: flex-end; margin: 32px 0 8px; }
+.device-col { display: flex; flex-direction: column; align-items: center; gap: 10px; }
+.device-col .cap { font-size: 0.875rem; color: var(--text-soft); text-align: center; max-width: 230px; }
+.iphone { width: 236px; height: 486px; border-radius: 40px; border: 9px solid #1d1d1f; background: #fff; color: #1d1d1f; overflow: hidden; position: relative; box-shadow: 0 20px 40px rgba(0,0,0,.12); font-size: 12px; line-height: 1.35; }
+.iphone .island { width: 78px; height: 22px; background: #000; border-radius: 12px; margin: 8px auto 6px; }
+.iphone .nav-t { display: flex; justify-content: space-between; padding: 0 14px 6px; font-weight: 600; font-size: 13px; }
+.iphone .nav-t span:last-child { color: #0066cc; font-weight: 500; }
+.iphone .hdr { background: #f2f2f7; padding: 10px 14px; border-bottom: 1px solid #d1d1d6; }
+.iphone .hdr b { display: block; font-size: 13px; }
+.iphone .hdr .m { color: #6e6e73; font-size: 11px; }
+.iphone .hdr .h { color: #0066cc; font-size: 11px; font-weight: 600; margin-top: 2px; }
+.iphone .caps { padding: 12px 14px; display: flex; flex-direction: column; gap: 10px; }
+.iphone .spk { font-size: 9px; font-weight: 700; color: #6e6e73; letter-spacing: .05em; }
+.iphone .line { font-size: 17px; font-weight: 600; }
+.iphone .lyric { font-size: 17px; font-style: italic; }
+.iphone .snd { font-size: 17px; color: #6e6e73; }
+.iphone .banner { position: absolute; left: 10px; right: 10px; top: 142px; background: rgba(255,255,255,.96); border: 2px solid #b25000; border-radius: 14px; padding: 10px 12px; box-shadow: 0 8px 18px rgba(0,0,0,.15); }
+.iphone .banner .lv { color: #b25000; font-size: 9px; font-weight: 800; letter-spacing: .05em; }
+.iphone .banner b { font-size: 12px; }
+.iphone.safety { background: #d70015; color: #fff; text-align: center; display: flex; flex-direction: column; }
+.iphone.safety .body { flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 12px; padding: 0 20px; }
+.iphone.safety .ic { font-size: 44px; line-height: 1; }
+.iphone.safety .t { font-size: 11px; font-weight: 700; letter-spacing: .08em; }
+.iphone.safety .msg { font-size: 19px; font-weight: 700; line-height: 1.25; }
+.iphone.safety .btn2 { margin: 0 16px 26px; background: #fff; color: #d70015; border-radius: 12px; padding: 12px; font-weight: 700; font-size: 14px; }
+.iphone.lock { background: linear-gradient(160deg, #1b2a4a, #3b1f4a 55%, #0f1424); color: #fff; }
+.iphone.lock .time { text-align: center; font-size: 54px; font-weight: 600; margin-top: 14px; letter-spacing: -1px; }
+.iphone.lock .date { text-align: center; font-size: 13px; opacity: .8; }
+.iphone.lock .la { margin: 150px 10px 0; background: rgba(0,0,0,.72); border-radius: 18px; padding: 12px; display: flex; gap: 10px; }
+.iphone.lock .la .wv { color: #5ac8fa; font-size: 18px; }
+.iphone.lock .la .ev { font-size: 9px; opacity: .7; }
+.iphone.lock .la b { font-size: 12px; display: block; }
+.iphone.lock .la .al { color: #ff9f0a; font-size: 11px; font-weight: 600; margin-top: 2px; }
+.watch { width: 168px; height: 204px; border-radius: 42px; border: 9px solid #1d1d1f; background: #000; color: #fff; padding: 16px 13px; box-shadow: 0 16px 30px rgba(0,0,0,.15); font-size: 11px; line-height: 1.3; }
+.watch .wcard { background: #d70015; border-radius: 10px; padding: 7px 8px; }
+.watch .wcard .lv { font-weight: 800; font-size: 9px; letter-spacing: .05em; }
+.watch .wcard .wb { margin-top: 6px; background: #fff; color: #ff3b30; border-radius: 8px; text-align: center; font-weight: 700; padding: 5px; font-size: 10px; }
+.watch .wcard .wb { color: #d70015; }
+.watch .np { font-weight: 700; margin-top: 8px; font-size: 11px; }
+.watch .hp { color: #5ac8fa; font-size: 10px; margin-top: 4px; }
+.mock-note { text-align: center; font-size: 0.875rem; color: var(--text-soft); margin: 4px 0 0; }
+
+/* ---------- Touch targets: at least 44 x 44 points (Apple HIG) ---------- */
+.nav .name, .nav ul a, footer a, .next a { display: inline-flex; align-items: center; min-height: 44px; min-width: 44px; }
+.nav ul a { justify-content: center; padding: 0 4px; }
+footer a { padding: 0 2px; }
+.sources li { margin: 0; }
+.sources a { display: inline-block; padding: 12px 0; }
+.cs .text-link { display: inline-flex; align-items: center; min-height: 44px; }
+.callout a { display: inline-block; padding: 12px 0; }
+
+/* ---------- Increase Contrast (Apple setting, prefers-contrast) ---------- */
+@media (prefers-contrast: more) {
+  :root { --text-soft: #3a3a3c; --line: #6e6e73; --accent: #0050a0; }
+  .ph, .card .ph { border-style: solid; }
+}
+@media (prefers-contrast: more) and (prefers-color-scheme: dark) {
+  :root { --text-soft: #d1d1d6; --line: #8e8e93; --accent: #6cb4ff; }
+}
